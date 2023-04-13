@@ -1,8 +1,8 @@
 const { Router } = require("express");
 
 const findAllDogs = require("../controllers/findAllDogs");
-const findRazaById = require("../controllers/findRazaById");
-const findAllRazas = require("../controllers/findAllRazas");
+const findDogById = require("../controllers/findDogById");
+const findAllNombreRaza = require("../controllers/findAllNombreRaza");
 const createDog = require("../controllers/createDog")
 
 
@@ -31,8 +31,11 @@ dogsRouter.get("/", async (req, res) => {
     dogsRouter.get("/name", async (req, res) => {
       try {
         const { name } = req.query;
-        const razas = await findAllRazas(name);
-        res.status(200).json(razas);
+        console.log(req.query);
+        const raza = name ? await findAllNombreRaza(name)
+                          : await findAllDogs();
+
+        res.status(200).json(raza);
       } catch (error) {
         res.status(400).json({ error: error.message });
       }
@@ -47,7 +50,7 @@ dogsRouter.get("/", async (req, res) => {
 dogsRouter.get("/:idRaza", async (req, res) => {
     try {
       const { idRaza } = req.params;
-      const raza = await findRazaById(idRaza);
+      const raza = await findDogById(idRaza);
       res.status(200).json(raza);
     } catch (error) {
       res.status(400).json({ error: error.message });

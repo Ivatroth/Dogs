@@ -1,5 +1,5 @@
 const { Router } = require("express");
-//const createTemperament = require("../controllers/createTemperament");
+const findAllTemperaments = require('../controllers/findAllTemperaments')
 
 const temperamentsRouter = Router();
 
@@ -11,23 +11,12 @@ const temperamentsRouter = Router();
 
 temperamentsRouter.get("/", async (req, res) => {
     try {
-        const temperamentos = await getTemperaments();
+        const temperamentos = await findAllTemperaments();
         res.status(200).json(temperamentos);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 });
 
-// //! ESTE ES PROVISORIO SOLO PARA CARGAR LA TABLA
-
-// temperamentsRouter.post("/", async (req, res) => {
-//     try {
-//       const {temperaments} = req.body;
-//       const temp = await createTemperament(temperaments);
-//       res.status(200).json({response: temp});
-//     } catch (error) {
-//       res.status(400).json({ error: error.message });
-//     }
-//   });
 
 module.exports = temperamentsRouter;

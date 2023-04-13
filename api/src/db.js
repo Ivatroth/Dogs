@@ -3,8 +3,8 @@ const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {DB_USER, DB_PASSWORD, DB_HOST, DB_PORT} = process.env;
-// const DogModel = require("./models/Dog");
-// const TemperamentModel = require("./models/Temperament")
+
+
 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/dogs`, {
   logging: false, // set to console.log to see the raw SQL queries
@@ -36,8 +36,10 @@ const { Dog, Temperament } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
+
 Dog.belongsToMany(Temperament, { through: "DogXTemperament" });
 Temperament.belongsToMany(Dog, { through: "DogXTemperament" });
+
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

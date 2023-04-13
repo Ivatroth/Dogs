@@ -33,6 +33,10 @@ module.exports = (sequelize) => {
       //rango de esperanza de vida --> "life_span": "10 - 12 years",
         type: DataTypes.STRING,
 
+    },
+    created: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
     }
   }, {
     timestamps : false,
