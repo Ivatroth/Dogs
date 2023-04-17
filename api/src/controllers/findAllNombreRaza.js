@@ -7,7 +7,7 @@ const { Op } = require('sequelize')
 //! Este controller busca y filtra las razas de perros segun una coincidencia(pasado por query) en el name
 const findAllRazas = async (query) => {
 
-  //busco la info de la Api
+  //busco la info de la Api, la trigo toda porque si uso la endpoit de seach no me trae la imagen
   let dogsAllApi = (await axios.get(`${URL_BASE}?key=${API_KEY}`)).data;
   //la filtro por el query
   let regExp = new RegExp(`${query}`, 'i');
@@ -35,7 +35,7 @@ const findAllRazas = async (query) => {
       },
   });
 
-console.log(dogsDB);
+//console.log(dogsDB);
 
   const dogs = [...dogsApi, ...dogsDB];
 if (dogs.length === 0) throw Error("No existe raza de perros que coincida con lo buscado");

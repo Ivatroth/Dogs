@@ -1,0 +1,26 @@
+.detail{
+    padding: 10px;
+    background-color: bisque;
+    border-radius: 30px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.prim{
+    text-align:start;
+    display: flex;
+    flex-direction: row;
+}
+
+.imgdetail{
+    width: 50%;
+    height: auto;
+    align-items: center;
+    border-radius: 20px;
+}
+
+#name{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: xxx-large;
+    color: blue;
+}

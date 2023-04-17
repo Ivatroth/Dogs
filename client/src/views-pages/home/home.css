@@ -1,0 +1,22 @@
+.menu{
+    width: 30%;
+    background-color: aquamarine;
+    border-radius: 20px;
+    margin: 10px;
+}
+.home{
+    display: flex;
+    flex-direction: row;
+}
+
+.selects{
+    display:flex;
+    flex-direction: column;
+    margin: 25px;
+
+}
+
+select{
+    margin-top: 20px;
+    padding: 10px;
+}

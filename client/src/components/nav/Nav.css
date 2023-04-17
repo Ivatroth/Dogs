@@ -1,0 +1,8 @@
+.nav{
+    background-image: url('./perro5.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+    height: 250px;
+}

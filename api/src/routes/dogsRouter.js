@@ -31,7 +31,7 @@ dogsRouter.get("/", async (req, res) => {
     dogsRouter.get("/name", async (req, res) => {
       try {
         const { name } = req.query;
-        console.log(req.query);
+        //console.log(req.query);
         const raza = name ? await findAllNombreRaza(name)
                           : await findAllDogs();
 
