@@ -7,8 +7,8 @@ const Cards = ({allDogs}) => {
   return (
     <div className='cards'>
       { allDogs?.map((dog) => {
-        //console.log(dog);
-          return (<Card dog = { dog }/>)
+        console.log("CARDS: "+dog.temperamen);
+        return (<Card dog = { dog }/>)
       })}
     </div>
   );

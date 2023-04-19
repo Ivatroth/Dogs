@@ -7,6 +7,7 @@ export const GET_DOG_ID = 'GET_DOG_ID';
 export const GET_TEMPERAMENTS = 'GET_TEMPERAMENTS';
 export const FILTER = 'FILTER';
 export const ORDER = 'ORDER';
+export const CREATE_DOG ='CREATE_DOG';
 
 
 export const getAllDogs = () =>{
@@ -26,6 +27,7 @@ export const getNameDogs = (name) =>{
     try {
         return async function(dispach){
             const response = await axios(`http://localhost:3001/dogs/name?name=${name}`);
+            
             return dispach({type: 'GET_DOGS_NAME', payload: response.data});
         };
         
@@ -54,6 +56,17 @@ export const getTemperaments = () => {
             return dispach({type: 'GET_TEMPERAMENTS', payload: response.data});
         };
         
+    } catch (error) {
+        throw Error(error.message);
+    }
+}
+
+export const postCreateDogs = (newDogs) =>{
+    try {
+        return async function(dispach){
+            const response = await axios.post('http://localhost:3001/dogs', newDogs)
+            return dispach({type: 'CREATE_DOG', payload : response.data})
+        }
     } catch (error) {
         throw Error(error.message);
     }

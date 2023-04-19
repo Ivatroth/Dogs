@@ -2,6 +2,7 @@
 const axios = require("axios")
 const {API_KEY, URL_BASE} = process.env;
 const createTemp = require('./createTemperaments');
+const { Temperament } = require("../db");
 
 //! Este controller busca todos los temperamentos de la Api y lo guarda en la DB y lo retorna
 const findAllTemperaments = async () => {
@@ -11,6 +12,7 @@ const findAllTemperaments = async () => {
   //aqui extraigo de la info de la Api solo el valor del temperamento de los perros
   //obtengo un array(set para que no se repitan) de temperamentos
   let setTemp = new Set();
+  
   //let temp = [];
   infoApi.forEach(dog => {
     if(dog.temperament) {
@@ -20,7 +22,9 @@ const findAllTemperaments = async () => {
   });
 
   //recorro el array de temperamentos y llamo la funcion para cargar la DB
-  setTemp.forEach((te) => createTemp(te));
+  const temp = await Temperament.findAll();
+  if(temp.length === 0) setTemp.forEach((te) => createTemp(te));
+      
 
   // Utilice el operador de dispersión para transformar un conjunto en una matriz. --> Sacado de google 
   return [...setTemp]; 

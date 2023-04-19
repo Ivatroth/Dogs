@@ -6,3 +6,15 @@
     border-radius: 5px;
     height: 250px;
 }
+.men{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width:initial;
+    box-shadow: 10px 10px 15px #999;
+}
+
+.titule{
+    padding-left: 50px;
+    text-decoration: underline;
+}

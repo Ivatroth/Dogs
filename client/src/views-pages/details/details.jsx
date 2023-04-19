@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDogID } from '../../redux/actions';
 
+
 function Details() {
   console.log('Entra a Detail');
   const {idRaza} = useParams();

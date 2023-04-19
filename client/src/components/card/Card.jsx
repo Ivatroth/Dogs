@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Card = ({dog}) => {
   const {id, name, image, weight, temperament} = dog;
+  console.log("CARD: "+temperament);
   return (
     
     <div className='card'>

@@ -3,6 +3,7 @@ const { Dog, Temperament } = require("../db");
 const { API_KEY, URL_BASE } = process.env;
 const clearInfoApi = require('./clearInfoApi');
 const { Op } = require('sequelize')
+const restaurarDogs = require("./restaurarDogs");
 
 //! Este controller busca y filtra las razas de perros segun una coincidencia(pasado por query) en el name
 const findAllRazas = async (query) => {
@@ -20,7 +21,7 @@ const findAllRazas = async (query) => {
   //! me da error cuando no tengo nada el la DB de dogs
   //! tengo que cargar la tabla Temperament,luego crear un Dogs y recien 
   //! correr este modulo.
-  const dogsDB = await Dog.findAll({
+  const PerrosDB = await Dog.findAll({
       where: {
           name: {
             [Op.iLike]: `%${query}%`,
@@ -35,7 +36,9 @@ const findAllRazas = async (query) => {
       },
   });
 
-//console.log(dogsDB);
+//* Como los temperamentos guardados en DB estan en array de objetos, 
+//* debo cambiarls por un string para enviarloa al cliente
+const dogsDB = restaurarDogs(PerrosDB);
 
   const dogs = [...dogsApi, ...dogsDB];
 if (dogs.length === 0) throw Error("No existe raza de perros que coincida con lo buscado");

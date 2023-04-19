@@ -1,0 +1,60 @@
+.container{
+    text-align: center;
+}
+.segucont{
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    text-align: justify;
+    margin: 0 50px 30px 200px;
+    padding: 25px;
+    width: 1000px;
+    width: fit-content;
+    background-color: rgb(176, 246, 223);
+    box-shadow: 10px 10px 15px #999;
+    
+}
+
+label{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight:bolder;
+    font-size: large;
+    padding: 10px;
+}
+
+span{
+    font-style: italic;
+    color: rgb(56, 9, 102);
+    font-weight:bold;
+    padding: 10px;
+}
+
+input,select,button{
+    font-size: larger;
+}
+input{
+    border-radius: 5px;
+}
+#altura_min,#altura_max,#peso_min,#peso_max,#vida_min,#vida_max{
+    width: 40px;
+}
+
+button{
+    width: 150px;
+    border-radius: 10px;
+}
+
+.newimage{
+    width: 500px;
+    height: 377px;
+    box-shadow: 10px 10px 15px #999;
+}
+
+img{
+    padding-top: 40px;
+}

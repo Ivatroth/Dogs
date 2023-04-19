@@ -28,7 +28,7 @@ const findRazaById = async (idRaza) => {
   else
   {
     console.log(idRaza);
-      const dogs = await Dog.findByPk(idRaza, {
+      const dog = await Dog.findByPk(idRaza, {
         include: {
           model: Temperament,
           attributes: ["name"],
@@ -37,8 +37,25 @@ const findRazaById = async (idRaza) => {
           },
         },
       });
-      if (!dogs) throw Error("La Raza no existe");
-      return dogs;
+      if (!dog) throw Error("La Raza no existe");
+
+      //*** */
+      let temp ='';
+      dog.Temperaments.forEach(t => {
+        temp = temp ?  temp +", "+ t.name : t.name ;
+      });
+      const dogDB = {
+          id: dog.id,
+          name: dog.name,
+          image: dog.image,
+          height: dog.height,
+          weight: dog.weight,
+          life_span: dog.life_span,
+          temperament: temp,
+        }
+
+      //*** */
+      return dogDB;
     }  
 };
 
