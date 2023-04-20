@@ -40,7 +40,7 @@ const findAllRazas = async (query) => {
 //* debo cambiarls por un string para enviarloa al cliente
 const dogsDB = restaurarDogs(PerrosDB);
 
-  const dogs = [...dogsApi, ...dogsDB];
+  const dogs = [...dogsDB,...dogsApi];
 if (dogs.length === 0) throw Error("No existe raza de perros que coincida con lo buscado");
     
   return dogs;

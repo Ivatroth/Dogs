@@ -66,8 +66,6 @@ const handelSelect = (event) => {
   //validations({...input, [property]: value}, error, setError)
 };
 
-//! ver el guardado de los temperamentos en la BD no se esta haciendo o no se puede recuperar uno de dos
-//! NO SE ESTA GUARDANDO LA TABLA INTERMEDIA VEEERRRR
 
 //! LAS VALIDACIONES TAMPOCO FUNCINAN ME TIRA SOLO LA ULTIMA
 

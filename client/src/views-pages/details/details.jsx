@@ -11,13 +11,13 @@ function Details() {
   const dispatch = useDispatch();
   
   const dog = useSelector((state) => state.dog)
-
   useEffect(()=>{
     dispatch(getDogID(idRaza))
   },[dispatch])
-
+  
+  console.log(dog);
   const {id, name, image, height, weight, temperament, life_span} = dog;
-
+console.log(name);
   return (
     <div >
       { name ? (

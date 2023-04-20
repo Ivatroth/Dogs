@@ -1,9 +1,10 @@
 import './home.css';
-import SearchBar from '../../components/search-bar/SearchBar';
+import SideBar from '../../components/sidebar/SideBar';
 import Cards from '../../components/cards/Cards';
-import  {getNameDogs, filterCards, orderCards, getAllDogs,getTemperaments} from '../../redux/actions'
+import  {getNameDogs, filterCards, orderCards, getAllDogs,getTemperaments, filtarXTemper} from '../../redux/actions'
 import { useDispatch ,useSelector } from 'react-redux';
 import { useEffect } from 'react';
+
 
 //! VER LO DE LAS VALIDACIONES
 //! FILTROS
@@ -36,47 +37,31 @@ function Home() {
     dispatch(getNameDogs(searchName));
   }
 
-  function handleFilterChange(event) {
-    event.preventDefault();
-    dispatch(filterCards(event.target.value));
-  }
+  function handelChange(event){
+    // event.preventDefault();
+    console.log(event.target.name);
+    if(event.target.name === 'filtrar') dispatch(filterCards(event.target.value));
+    else dispatch(orderCards(event.target.value));
   
-  function handleOrderChange(event) {
-    event.preventDefault();
-    dispatch(orderCards(event.target.value));
+
   }
+  const handelSelect = (event) => {
+    dispatch(filtarXTemper(event.target.value));
+  };
+  
 
 
   return (
     <div className="home">
-      <div></div>
-      <div className='menu'>
-        <SearchBar onSearch ={onSearch}/>
-        <div className='selects'>
-          <h3>Ordenar:</h3>
-          <select name = "ordena" onChange={handleOrderChange}>
-            <option value = "Ascendente">Ascendente</option>
-            <option value = "Descendente">Descendente</option>
-            <option value = "mayorPeso">Desde Mayor Peso</option>
-            <option value = "menorPeso">Desde Menor Peso</option>
-          </select>
-          <h3>Origen:</h3>
-          <select name = "filtrar" onChange={handleFilterChange}>
-            <option value = "todos">Todos</option>
-            <option value = "api">Api</option>
-            <option value = "database">Base de Datos</option>
-
-          </select>
-          <h3>Temperamento:</h3>
-          <select name = "temperaments" > 
-            {
-              allTemperaments.map((temp) => {
-                return (<option>{temp}</option>)
-              })
-            }
-          </select>
-        </div>
+      <div>
+        <SideBar 
+          onSearch = {onSearch} 
+          handleChange={handelChange}
+          handelSelect={handelSelect}
+          allTemperaments ={allTemperaments}
+        />
       </div>
+
       <div>
         <Cards allDogs={allDogs}/>
       </div>

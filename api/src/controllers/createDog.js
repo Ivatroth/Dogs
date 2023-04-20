@@ -8,8 +8,8 @@ const createDog = async ({name, image, height, weight, life_span, temperament}) 
     arrTemp.forEach(async t =>  {
       //* Aqui tube que hacer una consulta a la DB de Temeramentos para poder
       //* obtener el ID del temperamento que viene del front como string
-      const temperamento = t.trim();
-      const temp = await Temperament.findOne({ where: { name: temperamento } });
+      //const temperamento = t.trim();
+      const temp = await Temperament.findOne({ where: { name: t.trim() } });
       //console.log("console en createDogs de los temperamentos:"+ temp);
       //* porque esta funcion necesita el ID
       newDog.addTemperaments(temp.id);

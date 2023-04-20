@@ -13,6 +13,7 @@ const SearchBar = ({onSearch}) => {
 
   return (
     <div className="navbar">
+      <h3>Busqueda por Nombre:</h3>
       <input type='search' placeholder='Nombre de la Raza' onChange={handleChange}/>
       <button type='submit' onClick={() => {onSearch(searchName)}}>Buscar</button> 
     </div>

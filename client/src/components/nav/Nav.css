@@ -3,7 +3,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 5px;
+    border-radius: 10px;
     height: 250px;
 }
 .men{
@@ -12,6 +12,7 @@
     justify-content: center;
     width:initial;
     box-shadow: 10px 10px 15px #999;
+    border-radius: 5px;
 }
 
 .titule{

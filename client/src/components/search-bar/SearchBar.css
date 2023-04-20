@@ -1,6 +1,11 @@
-.navbar{
+/* .navbar{
     border: none;
-    padding: 10px;
+    padding: 20px;
     line-height: 30px;
     margin-bottom: 40px;
+    margin-top: 50px;
+} */
+
+button{
+    border-radius: 5px;
 }
