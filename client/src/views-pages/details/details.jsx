@@ -2,7 +2,7 @@ import { useEffect} from 'react';
 import './details.css';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDogID } from '../../redux/actions';
+import { getDogID, deleteDogs } from '../../redux/actions';
 
 
 function Details() {
@@ -10,37 +10,35 @@ function Details() {
   const {idRaza} = useParams();
   const dispatch = useDispatch();
   
-  const dog = useSelector((state) => state.dog)
-  useEffect(()=>{
-    dispatch(getDogID(idRaza))
+  let dog = useSelector((state) => state.dog)
+  useEffect(()=> {
+    dispatch(getDogID(idRaza));
+    return(() =>dispatch(deleteDogs()))      
   },[dispatch])
   
   console.log(dog);
   const {id, name, image, height, weight, temperament, life_span} = dog;
-console.log(name);
+
   return (
-    <div >
+    <div className='detail'>
       { name ? (
-          <div className='detail'>
+          <div >
             <div>
               <h1>Informacion de la Raza: </h1>
               <h1 id='name'>{name}</h1>
             </div>
             <div className='prim'>
-              <div ><img className='imgdetail' src={image} alt={`Ejemplar de ${name}`} /></div>
-                <div >
-                    
-                    <h2>Código: </h2>
-                    <h3>{id}</h3>
-                    <h2>Rango de Altura: </h2>
-                    <h3>{height}</h3>
-                    <h2>Rango de peso: </h2>
-                    <h3>{weight}</h3>
-                    <h2>Años de vida: </h2>
-                    <h3>{life_span}</h3>
-                    <h2>Temperamentos: </h2> 
-                    <h3>{temperament}</h3>
-                </div>
+  
+              <img  className='imgdetail' src={image} alt={`Ejemplar de ${name}`} />
+          
+              <div className='infor'>
+                    <h2>Código:  {id} </h2>
+                    <h2>Rango de Altura: {height}  Cm</h2>                    
+                    <h2>Rango de peso: {weight}  Kg</h2>
+                  <h2>Años de vida: {life_span}  años</h2>
+                  <h2>Temperamentos:</h2>
+                  <h3>{temperament}</h3>
+              </div>
             </div>
           </div>
         ):( <h3>Loading...</h3>)

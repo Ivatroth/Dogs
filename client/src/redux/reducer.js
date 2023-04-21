@@ -1,4 +1,4 @@
-import { GET_DOGS, GET_DOGS_NAME, GET_DOG_ID, FILTER, ORDER, GET_TEMPERAMENTS, CREATE_DOG } from "./actions";
+import { GET_DOGS, DELETE, GET_DOG_ID, GET_TEMPERAMENTS, CREATE_DOG } from "./actions";
 
 const initialState = {
     allDogs: [],
@@ -14,16 +14,8 @@ const rootReducer = (state = initialState, action) => {
         return{
           ...state,
           allDogs: action.payload,
-          // copyAllDogs: action.payload,
         }
-
-      // case GET_DOGS_NAME:
         
-      //   return{
-      //     ...state,
-      //     allDogs: action.payload,
-      //   }
-      
       case GET_DOG_ID:
         console.log("Entra a Reducer");
         return{
@@ -41,8 +33,27 @@ const rootReducer = (state = initialState, action) => {
         return{
           ...state,
         }
+      
+      case DELETE:
+        return{
+          ...state,
+          dog: [],
+        }
         
-      // case FILTER:
+        default:
+        return { ...state };
+    }
+  };
+  
+  export default rootReducer;
+
+        // case GET_DOGS_NAME:
+          
+        //   return{
+        //     ...state,
+        //     allDogs: action.payload,
+        //   }
+        // case FILTER:
       //     return {
       //       ...state,
       //       allDogs: action.payload,
@@ -53,10 +64,3 @@ const rootReducer = (state = initialState, action) => {
       //       ...state,
       //       allDogs: action.payload,
       //     }
-         
-      default:
-        return { ...state };
-    }
-  };
-  
-  export default rootReducer;

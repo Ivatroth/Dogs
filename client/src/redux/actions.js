@@ -8,6 +8,7 @@ export const GET_TEMPERAMENTS = 'GET_TEMPERAMENTS';
 // export const FILTER = 'FILTER';
 // export const ORDER = 'ORDER';
 export const CREATE_DOG ='CREATE_DOG';
+export const DELETE = 'DELETE'
 
 
 export const getAllDogs = () =>{
@@ -128,4 +129,8 @@ export const orderCards = (value) => {
         throw Error(error.message);
     }
      
+  }
+
+  export const deleteDogs = () =>{
+    return {type: DELETE}
   }

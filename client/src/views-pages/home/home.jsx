@@ -3,7 +3,8 @@ import SideBar from '../../components/sidebar/SideBar';
 import Cards from '../../components/cards/Cards';
 import  {getNameDogs, filterCards, orderCards, getAllDogs,getTemperaments, filtarXTemper} from '../../redux/actions'
 import { useDispatch ,useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Paginado } from '../../components/paginado/paginado';
 
 
 //! VER LO DE LAS VALIDACIONES
@@ -18,6 +19,20 @@ function Home() {
   // Con el useSelector se hace la subscripcion de este componente al estado global, pero indicandole a cual subEstado, en este caso allDogs.
   let allDogs = useSelector((state) => state.allDogs);
   let allTemperaments = useSelector((state) => state.allTemperaments);
+  // estado local que me guarda la pagina actual
+  const [currentPage, setCurrentPage] = useState(1);
+  // constante que me guarda la cantidad de dogs por pagina
+  const dogsXPage = 8;
+  // indice del ultimo Dog de la pagina actual
+  const indexLastDog = currentPage * dogsXPage;
+  // indice del primer dog de la pagina actual
+  const indexFirstDog = indexLastDog - dogsXPage;
+  // array de los dog actuales en esta pagina
+  const currentDogs = allDogs.slice(indexFirstDog, indexLastDog);
+
+  const paginado = (numPagina) => {
+    setCurrentPage(numPagina)
+  }
 
   const clearState = () => {
     allDogs = [];
@@ -52,20 +67,27 @@ function Home() {
 
 
   return (
-    <div className="home">
+    <div className="conteiner">
       <div>
-        <SideBar 
-          onSearch = {onSearch} 
-          handleChange={handelChange}
-          handelSelect={handelSelect}
-          allTemperaments ={allTemperaments}
-        />
+        <Paginado allDogs={allDogs.length}
+                  dogsXPage={dogsXPage}
+                  paginado={paginado} />
       </div>
+      <div className="home">
+        <div>
+          <SideBar 
+            onSearch = {onSearch} 
+            handleChange={handelChange}
+            handelSelect={handelSelect}
+            allTemperaments ={allTemperaments}
+          />
+        </div>
 
-      <div>
-        <Cards allDogs={allDogs}/>
+        <div>
+          <Cards allDogs={currentDogs}/>
+        </div>
+        
       </div>
-      
     </div>
   );
 }

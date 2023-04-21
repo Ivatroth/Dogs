@@ -1,24 +1,31 @@
 .detail{
-    padding: 10px;
     background-color: bisque;
     border-radius: 30px;
-    margin: 20px;
     display: flex;
     flex-direction: column;
+    text-align: center;
+    margin: 10px 200px 0px 200px;
+    box-shadow: 10px 10px 15px #999;
 }
 .prim{
-    text-align:start;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
 
 .imgdetail{
-    width: 50%;
-    height: auto;
-    align-items: center;
-    border-radius: 20px;
+    height: 350px;
+    width: 350px;
+    /* box-shadow: 10px 10px 15px #999; */
 }
 
+.infor{
+    margin-left: 50px;
+    padding: 10px;
+    text-align: left;
+    margin-bottom: 120px;
+
+}
 #name{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xxx-large;

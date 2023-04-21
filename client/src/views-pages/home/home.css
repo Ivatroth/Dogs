@@ -1,6 +1,15 @@
 
+.conteiner{
+    display: flex;
+    flex-direction: column;   
+    text-align: center;
+}
 .home{
     display: flex;
     flex-direction: row;
 }
 
+.number {
+    display: inline-block;
+    margin-right: 10px; 
+  }

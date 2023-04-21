@@ -49,7 +49,6 @@ const handelChange = (event) => {
   const property = event.target.name;
   //se van agregando al estado local
   setInput({...input, [property]: value });
-  console.log(input);
   // Validamos en tiompo real, a la funcion le pasamos todos los imput y que evalue de 
   // manera dinamica el input.value que estamos cambiando
   setError(validations({...input, [property]: value}, error, setError));
@@ -71,12 +70,8 @@ const handelSelect = (event) => {
 
 const handelSubmit = (event) => {
   event.preventDefault();
-  console.log("Entra al handelSubmit");
   //* funcion restauradora del obj Dog para que coincidan los rangos
-  console.log(input.temperament);
   const objDog = restauraDog(input)
-  console.log(objDog.temperament);
-  console.log(objDog); //! ****
   dispatch(postCreateDogs(objDog));
   alert("Raza Cargada con Exito")
   setInput({
@@ -90,7 +85,7 @@ const handelSubmit = (event) => {
     life_span_max: '',
     temperament: '',
   });
-  //history.push("/home")
+
 };
 
   return (
