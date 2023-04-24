@@ -2,7 +2,8 @@
     display: block;
     padding: 7px 14px;
     color:#fff;
-    background: #b5825a;
+    background: #978686;
+    margin-top: 5px;
 }
 .paginacion ul li a:hover {
     background: #bcc4dc;

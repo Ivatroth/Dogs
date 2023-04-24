@@ -1,16 +1,18 @@
 
 .conteiner{
     display: flex;
-    flex-direction: column;   
+    flex-direction: column;
+
 }
 .paginado{
     text-align: center; 
+    margin-top: 10px;
 }
 .home{
     display: flex;
     flex-direction: row;
     justify-content:space-between;
-    
+    text-align: center; 
 }
 
 .number {

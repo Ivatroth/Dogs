@@ -6,14 +6,15 @@
 }
 
 .lincks{
-    color:rgb(202, 163, 113);
+    color:#a9785e;
     text-decoration: none;
 }
 .conteiner{
     font-family: Georgia, 'Times New Roman', Times, serif; 
-    background:#eedbc4;
+    background:#d1cdcd;
     display: flex;
     height: 100vh;
+    margin-top: 10px;
 }
 .grid{
     background: #fff;

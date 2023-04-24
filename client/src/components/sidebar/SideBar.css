@@ -1,7 +1,7 @@
 .menu{
     /* height: 500px; */
     width: 90%;
-    background-color:#b5825a;
+    background-color:#a9785e;
     border-radius: 20px;
     margin: 5px 10px 10px 30px;
     padding: 20px;
@@ -16,7 +16,9 @@
 select{
     border-radius: 5px;
     height: 30px;
-    padding: 15px;
+    /* padding: 15px; */
+    margin-top: 10px;
+    width: 280px;
 }
 .menu{
     padding: 20px;

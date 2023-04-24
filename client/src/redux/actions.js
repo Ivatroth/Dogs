@@ -76,8 +76,8 @@ export const filterCards = (filter) => {
     try {
             const response = (await axios('http://localhost:3001/dogs')).data;
             let filtrado = []
-            if( filter === 'todos') filtrado = response;
-            else if(filter === 'api') filtrado = response.filter((dog)=> dog.created === false)
+            if( filter === 'Todos') filtrado = response;
+            else if(filter === 'Api') filtrado = response.filter((dog)=> dog.created === false)
             else {
                 filtrado = response.filter((dog) => dog.created === true)
                 if(filtrado.length === 0) throw Error("No hay razas cargadas en la Base de Datos")
@@ -97,13 +97,13 @@ export const orderCards = (value) => {
             const response = (await axios('http://localhost:3001/dogs')).data;
 
             switch(value){
-                case 'nada': 
+                case 'Sin Orden': 
                     return dispach({type: 'GET_DOGS', payload: response});
                 case 'Ascendente':
                     return dispach({type: 'GET_DOGS', payload: response.sort((a, b) =>  a.name.localeCompare(b.name))});
                 case 'Descendente':
                     return dispach({type: 'GET_DOGS', payload: response.sort((a, b) =>  a.name.localeCompare(b.name)).reverse()});
-                case 'menorPeso':
+                case 'Menor Peso':
                     return dispach({type: 'GET_DOGS', payload: response.sort((a, b) => a.weight.split('-')[0].trim() - b.weight.split('-')[0].trim())});          
                 default :
                     return dispach({type: 'GET_DOGS', payload: response.sort((a, b) => a.weight.split('-')[0].trim() - b.weight.split('-')[0].trim()).reverse()});
@@ -119,11 +119,9 @@ export const orderCards = (value) => {
 
     return async function(dispach){
     try {
-        console.log("Entra el filtarXTemper: "+temp);
             const response = (await axios('http://localhost:3001/dogs')).data;
             let regExp = new RegExp(`${temp}`, 'g');
             const dogsXTemper = response.filter(dog => regExp.test(dog.temperament) === true );
-            console.log(dogsXTemper);
             return dispach({type: 'GET_DOGS', payload: dogsXTemper})
         } catch (error) {
             alert("Error: " + error.message)

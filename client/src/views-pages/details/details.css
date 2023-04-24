@@ -1,12 +1,12 @@
 .detail{
-    background-color: #8d7450;
+    background-color: #b9a78e;
     border-radius: 30px;
     display: flex;
     flex-direction: column;
     text-align: center;
     margin: 10px 200px 0px 200px;
     box-shadow: 10px 10px 15px #999;
-    border: #762e15 solid;
+    border: #6a3c1f solid;
 }
 .prim{
         
@@ -36,6 +36,6 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xxx-large;
     color: #762e15;
-    box-shadow: 0px 0px 10px 10px#762e15;
+    box-shadow: 0px 0px 10px 10px#a9785e;
     padding-top: 10px;
 }

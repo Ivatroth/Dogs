@@ -7,14 +7,14 @@
     border: 1px;
     border-radius: 5px 0px 0px 5px;
     background-color: #fff;
-    height: 2em; 
-    width: 300px;
+    height: 1.7em; 
+    width: 280px;
 }
 
 .searchButton{
     border: 1px;
     border-radius:0px 5px 5px 0px;
-    background-color: #edc594;
-    height: 2em;
+    background-color: #dec5c5;
+    height: 1.7em;
     width: 90px;
 }
