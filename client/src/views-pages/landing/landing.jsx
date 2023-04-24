@@ -4,9 +4,15 @@ import { Link } from 'react-router-dom';
 
 function LandingPage() {
   return (
-    <div className='landing'>
-      <h1>Bienvenodo a un mundo de Perros</h1>
-      <Link to = "/home"><button>Home</button></Link>
+    <div className='conteiner'>
+    <selection className='grid'>
+    <div className='grid_text'>
+      <h2 className='grid_title'>Bienvenido</h2>
+
+      <h2 className='grid_title grid_title--transform'> A un mundo de Perros</h2>
+      <Link to = "/home" className='lincks'><h2>Ingresar</h2></Link>
+    </div>
+    </selection>
     </div>
   );
 }

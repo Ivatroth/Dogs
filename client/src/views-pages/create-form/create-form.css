@@ -11,11 +11,10 @@
     flex-direction: column;
     justify-content:flex-start;
     text-align: justify;
-    margin: 0 50px 30px 200px;
+    margin: 10px 50px 30px 180px;
     padding: 25px;
-    width: 1000px;
-    width: fit-content;
-    background-color: rgb(176, 246, 223);
+    width: 800px;
+    background-color: #edc594;
     box-shadow: 10px 10px 15px #999;
     
 }
@@ -25,36 +24,51 @@ label{
     font-weight:bolder;
     font-size: large;
     padding: 10px;
+
 }
 
 span{
     font-style: italic;
-    color: rgb(56, 9, 102);
+    color: #762e15;
     font-weight:bold;
     padding: 10px;
+    font-size: large;
 }
-
+.entradas{
+    margin-top: 1em;
+}
 input,select,button{
     font-size: larger;
+    height: 35px;
 }
 input{
     border-radius: 5px;
 }
 #altura_min,#altura_max,#peso_min,#peso_max,#vida_min,#vida_max{
-    width: 40px;
+    width: 60px;
 }
 
 button{
     width: 150px;
     border-radius: 5px;
+    color: #762e15;
+    font-weight:bold;
+    align-self: flex-end;
 }
 
 .newimage{
     width: 500px;
-    height: 377px;
+    height: 425px;
     box-shadow: 10px 10px 15px #999;
 }
 
 img{
-    padding-top: 40px;
+    padding-top: 0px;
+    margin-top: 60px;
+    border: solid;
+    border-color: #ac824f;
+    box-shadow: 10px 10px 15px #ac824f;
+}
+h1{
+    padding-top: 20px;
 }

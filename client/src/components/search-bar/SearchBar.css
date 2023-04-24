@@ -1,11 +1,20 @@
-/* .navbar{
-    border: none;
-    padding: 20px;
-    line-height: 30px;
-    margin-bottom: 40px;
-    margin-top: 50px;
-} */
+.navbar{
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
 
-button{
-    border-radius: 5px;
+.searchInput{
+    border: 1px;
+    border-radius: 5px 0px 0px 5px;
+    background-color: #fff;
+    height: 2em; 
+    width: 300px;
+}
+
+.searchButton{
+    border: 1px;
+    border-radius:0px 5px 5px 0px;
+    background-color: #edc594;
+    height: 2em;
+    width: 90px;
 }

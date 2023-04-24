@@ -22,13 +22,11 @@ const findAllDogs = async () => {
         },
       },
     });
-    
+
+  
     //* Como los temperamentos guardados en DB estan en array de objetos, 
     //* debo cambiarls por un string para enviarloa al cliente
-  //const dogsDB = [];
- // if(PerrosDB.length !== 0) { 
-    const dogsDB = restaurarDogs(PerrosDB);
- //     console.log("Salgo de Restaurar con: " + dogsDB);}
+  const dogsDB = restaurarDogs(PerrosDB); 
     // filtro para eliminar algunos atributos
   const dogsApi = clearInfoApi(dogsAllApi);
     

@@ -10,12 +10,15 @@ const SearchBar = ({onSearch}) => {
     event.preventDefault();
     setSearchName(event.target.value)
   }
-
+  
+  
+  
   return (
     <div className="navbar">
-      <h3>Busqueda por Nombre:</h3>
-      <input type='search' placeholder='Nombre de la Raza' onChange={handleChange}/>
-      <button type='submit' onClick={() => {onSearch(searchName)}}>Buscar</button> 
+      <h3 className='title'>Busqueda por Nombre:</h3>
+      <input className='searchInput' name='input' type='search' placeholder='Nombre de la Raza' onChange={handleChange} />
+      <button className='searchButton' type='submit' onClick={() => {
+        onSearch(searchName)}}>Buscar</button> 
     </div>
   );
 }

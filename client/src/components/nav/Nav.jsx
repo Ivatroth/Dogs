@@ -8,10 +8,10 @@ const Nav = () => {
         
         <div className='men' >
           <div className='titule'>
-              <Link to="/home"><h3>Home </h3></Link>
+              <Link  className='lincks' to="/home"><h3>Home </h3></Link>
           </div>
           <div  className='titule'>
-              <Link to="/dogs"><h3> Nueva Raza</h3></Link>
+              <Link  className='lincks' to="/dogs"><h3> Nueva Raza</h3></Link>
           </div>
         </div>
     </nav>

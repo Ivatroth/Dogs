@@ -1,0 +1,13 @@
+.paginacion ul li a{
+    display: block;
+    padding: 7px 14px;
+    color:#fff;
+    background: #b5825a;
+}
+.paginacion ul li a:hover {
+    background: #bcc4dc;
+}
+.paginacion ul li a:active{
+    background:#bcc4dc;
+    font-weight: bold;
+}

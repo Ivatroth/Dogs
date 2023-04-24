@@ -1,4 +1,5 @@
 import React from "react";
+import paginado from "./paginado.css"
 
 export const Paginado = ({allDogs, dogsXPage, paginado}) => {
 
@@ -8,12 +9,13 @@ export const Paginado = ({allDogs, dogsXPage, paginado}) => {
             pageNum.push(i);
     }
 
+
     return(
-        <nav>
+        <nav className="paginacion">
             <ul> 
                 {pageNum && pageNum.map(num => (
                         <li className="number" key = {num}>
-                        <a onClick={()=> paginado(num)}>{num}</a>
+                            <a className="active" onClick={()=> paginado(num)}>{num}</a>
                         </li>
                     )
                 )}

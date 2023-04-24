@@ -1,15 +1,11 @@
 import './home.css';
 import SideBar from '../../components/sidebar/SideBar';
 import Cards from '../../components/cards/Cards';
-import  {getNameDogs, filterCards, orderCards, getAllDogs,getTemperaments, filtarXTemper} from '../../redux/actions'
+import  {getNameDogs, filterCards, orderCards, getAllDogs,getTemperaments, filtarXTemper,deleteAll} from '../../redux/actions'
 import { useDispatch ,useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Paginado } from '../../components/paginado/paginado';
 
-
-//! VER LO DE LAS VALIDACIONES
-//! FILTROS
-//! CSS
 
 function Home() {
   // la forma en que le comunico al reducer una actions es con un dispatch.
@@ -33,19 +29,15 @@ function Home() {
   const paginado = (numPagina) => {
     setCurrentPage(numPagina)
   }
-
-  const clearState = () => {
-    allDogs = [];
-    allTemperaments = [];
-  }
-
+  
   useEffect(() => {
     dispatch(getAllDogs());
     dispatch(getTemperaments());
+    paginado(1);
     //antes de salir del componente se debe limpiar el estado
-    return(() => {
-      clearState() // ver en la clase de jorge
-    })
+    // return(() => {
+    //   dispatch(deleteAll()) 
+    // })
   }, [dispatch] )
 
   const onSearch = (searchName) => {
@@ -53,14 +45,13 @@ function Home() {
   }
 
   function handelChange(event){
-    // event.preventDefault();
-    console.log(event.target.name);
+    event.preventDefault();
+    paginado(1);
     if(event.target.name === 'filtrar') dispatch(filterCards(event.target.value));
     else dispatch(orderCards(event.target.value));
-  
-
   }
   const handelSelect = (event) => {
+    paginado(1);
     dispatch(filtarXTemper(event.target.value));
   };
   
@@ -68,13 +59,14 @@ function Home() {
 
   return (
     <div className="conteiner">
-      <div>
+      <div className='paginado'>
         <Paginado allDogs={allDogs.length}
                   dogsXPage={dogsXPage}
                   paginado={paginado} />
+        <h1>{currentPage}</h1>
       </div>
       <div className="home">
-        <div>
+        <div className="sidebar"> 
           <SideBar 
             onSearch = {onSearch} 
             handleChange={handelChange}

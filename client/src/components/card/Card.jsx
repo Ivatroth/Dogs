@@ -9,7 +9,7 @@ const Card = ({dog}) => {
     <div className='card'>
       <div><img src={image} alt={`Ejemplar de ${name}`} /></div>
       <div className='info'>
-          <h2>{name}</h2>
+          <h1>{name}</h1>
           <h3>Rango de peso:</h3>
           <h4>{weight}</h4>
           <h3>Temperamentos:</h3>

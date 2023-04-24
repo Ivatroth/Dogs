@@ -1,33 +1,41 @@
 .detail{
-    background-color: bisque;
+    background-color: #8d7450;
     border-radius: 30px;
     display: flex;
     flex-direction: column;
     text-align: center;
     margin: 10px 200px 0px 200px;
     box-shadow: 10px 10px 15px #999;
+    border: #762e15 solid;
 }
 .prim{
+        
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
 .imgdetail{
+    
     height: 350px;
     width: 350px;
     /* box-shadow: 10px 10px 15px #999; */
 }
+.titleDetail{
+    padding-top: 20px;
+}
 
 .infor{
     margin-left: 50px;
-    padding: 10px;
+    padding-top: 30px;
     text-align: left;
-    margin-bottom: 120px;
-
+    margin-bottom: 60px;
+    font-family: Verdana, Geneva, Tahoma, sans-serifs;
 }
 #name{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xxx-large;
-    color: blue;
+    color: #762e15;
+    box-shadow: 0px 0px 10px 10px#762e15;
+    padding-top: 10px;
 }

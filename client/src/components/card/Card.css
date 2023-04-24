@@ -8,7 +8,7 @@
     margin: 5px;
     padding: 20px;
     width: 450;
-    height: 350px;
+    height: 450px;
     box-shadow: 10px 10px 15px #999;
 }
 .info{
@@ -22,20 +22,24 @@
 img {
     width: 300px;
     height: 300px;
+
   }
 
-h2{
+h1{
    align-items: center;
    padding-left: 15px;
-   color: rgb(12, 53, 114);
+   padding-bottom: 20px;
+   color: #864827;
   }
 
 h4, h3{
-  text-align: justify;
+  text-align:left;
+  padding: 10px;
 }
 
   .linck {
     text-decoration: none;
     color: rgb(31, 52, 52);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   }
   

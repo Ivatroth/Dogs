@@ -1,4 +1,4 @@
-import { GET_DOGS, DELETE, GET_DOG_ID, GET_TEMPERAMENTS, CREATE_DOG } from "./actions";
+import { GET_DOGS,DELETE, DELETE_ALL, GET_DOG_ID, GET_TEMPERAMENTS, CREATE_DOG } from "./actions";
 
 const initialState = {
     allDogs: [],
@@ -17,7 +17,6 @@ const rootReducer = (state = initialState, action) => {
         }
         
       case GET_DOG_ID:
-        console.log("Entra a Reducer");
         return{
           ...state,
           dog: action.payload,
@@ -38,6 +37,13 @@ const rootReducer = (state = initialState, action) => {
         return{
           ...state,
           dog: [],
+        }
+      
+      case DELETE_ALL:
+        return{
+          ...state,
+          allDogs: [],
+          
         }
         
         default:

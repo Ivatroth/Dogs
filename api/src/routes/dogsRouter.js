@@ -51,6 +51,7 @@ dogsRouter.get("/:idRaza", async (req, res) => {
     try {
       const { idRaza } = req.params;
       const raza = await findDogById(idRaza);
+      console.log(raza);
       res.status(200).json(raza);
     } catch (error) {
       res.status(400).json({ error: error.message });

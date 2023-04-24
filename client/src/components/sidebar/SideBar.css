@@ -1,20 +1,26 @@
 .menu{
     /* height: 500px; */
-    width: 80%;
-    background-color: rgb(194, 243, 226);
+    width: 90%;
+    background-color:#b5825a;
     border-radius: 20px;
-    margin: 45px 30px 10px 30px;
+    margin: 5px 10px 10px 30px;
     padding: 20px;
     padding-bottom: 60px;
     box-shadow: 10px 10px 15px #999;
     display:flex;
     flex-direction: column;
-    justify-content:space-between;
+
     text-align: left;
-    
 }
 
 select{
     border-radius: 5px;
     height: 30px;
+    padding: 15px;
+}
+.menu{
+    padding: 20px;
+}
+.title{
+    padding: 10px;
 }

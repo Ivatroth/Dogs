@@ -1,21 +1,28 @@
 .nav{
-    background-image: url('./perro5.jpg');
+    background-image: url('./perrobaner.jpg');
+    
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:cover;
     border-radius: 10px;
-    height: 250px;
+    height: 150px;
+    color: #b5825a;
+    margin-top: 10px;
+
+
 }
 .men{
     display: flex;
     flex-direction: row;
     justify-content: center;
     width:initial;
-    box-shadow: 10px 10px 15px #999;
     border-radius: 5px;
+    padding: 20px;
+    box-shadow: 10px 10px 15px #999;
 }
 
 .titule{
     padding-left: 50px;
-    text-decoration: underline;
+    font-size: large;
+    
 }
