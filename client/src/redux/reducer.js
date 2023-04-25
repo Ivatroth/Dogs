@@ -2,7 +2,7 @@ import { GET_DOGS,DELETE, DELETE_ALL, GET_DOG_ID, GET_TEMPERAMENTS, CREATE_DOG }
 
 const initialState = {
     allDogs: [],
-    // copyAllDogs: [],
+    //copyAllDogs: [],
     allTemperaments: [],
     dog:[]
 }

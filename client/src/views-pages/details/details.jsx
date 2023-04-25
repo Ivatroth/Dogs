@@ -16,20 +16,20 @@ function Details() {
     return(() =>dispatch(deleteDog()))      
   },[dispatch])
   
-  console.log(dog);
+
   const {id, name, image, height, weight, temperament, life_span} = dog;
 
   return (
     <div className='detail'>
       { name ? (
           <div >
-            <div>
-              <h1 className='titleDetail'>Informacion de la Raza: </h1>
+            <div className='titleDetail'>
+              <h1 >Informacion de la Raza: </h1>
               <h1 id='name'>{name}</h1>
             </div>
             <div className='prim'>
   
-              <img  className='imgdetail' src={image} alt={`Ejemplar de ${name}`} />
+              < img  className='imgdetail' src={image} alt={`Ejemplar de ${name}`} />
           
               <div className='infor'>
                     <h2 className='title'>Código:  {id} </h2>
@@ -45,8 +45,7 @@ function Details() {
         }
         {/* <div >
           <Link to = "/home"><button className='type2'>Volver</button></Link>
-        </div> */}
-      
+        </div> */}      
     </div>
   );
 }

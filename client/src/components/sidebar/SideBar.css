@@ -1,7 +1,7 @@
 .menu{
     /* height: 500px; */
-    width: 90%;
-    background-color:#a9785e;
+    width: 93%;
+    background-color:#978686;
     border-radius: 20px;
     margin: 5px 10px 10px 30px;
     padding: 20px;
@@ -20,9 +20,24 @@ select{
     margin-top: 10px;
     width: 280px;
 }
-.menu{
-    padding: 20px;
-}
+
+
 .title{
     padding: 10px;
+}
+.bar{
+    text-align: center;
+}
+
+.ordenar{
+    margin: 10px;
+    border: #fff solid;
+    text-align: center;
+    padding: 20px;
+}
+.filtrar{
+    margin: 10px;
+    border: #fff solid;
+    text-align: center;
+    padding: 20px;
 }

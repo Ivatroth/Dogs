@@ -1,5 +1,7 @@
 .container{
     text-align: center;
+    margin-bottom: 50px;
+    
 }
 .segucont{
     display: flex;
@@ -14,7 +16,7 @@
     margin: 10px 50px 30px 180px;
     padding: 25px;
     width: 800px;
-    background-color: #ccb4b4;
+    background-color: #b3abab;
     box-shadow: 10px 10px 15px #999;
     
 }
@@ -25,6 +27,11 @@ label{
     font-size: large;
     padding: 10px;
 
+}
+p{
+    font-size:x-large;
+    padding: 5px;
+    color: rgb(160, 16, 16);
 }
 
 span{
@@ -65,9 +72,8 @@ button{
 img{
     padding-top: 0px;
     margin-top: 60px;
-    border: solid;
-    border-color: #ac824f;
-    box-shadow: 10px 10px 15px #a9785e;
+    border-radius: 3px;
+    box-shadow: 10px 10px 15px #6f6e6e;
 }
 h1{
     padding-top: 20px;

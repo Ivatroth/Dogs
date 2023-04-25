@@ -18,7 +18,7 @@ dogsRouter.get("/", async (req, res) => {
         res.status(200).json(dogs);
     } catch (error) {
         res.status(500).json({ error: error.message });
-      }
+    }
     });
     
     // 📍 GET | /dogs/name?="..."

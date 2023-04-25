@@ -82,7 +82,6 @@ export const filterCards = (filter) => {
                 filtrado = response.filter((dog) => dog.created === true)
                 if(filtrado.length === 0) throw Error("No hay razas cargadas en la Base de Datos")
             }
-
             return dispach({type: 'GET_DOGS', payload: filtrado});
         } catch (error) {
             alert("Error: " + error.message)
@@ -91,30 +90,7 @@ export const filterCards = (filter) => {
 
   };
   
-export const orderCards = (value) => {
-    return async function(dispach){
-    try {
-            const response = (await axios('http://localhost:3001/dogs')).data;
-
-            switch(value){
-                case 'Sin Orden': 
-                    return dispach({type: 'GET_DOGS', payload: response});
-                case 'Ascendente':
-                    return dispach({type: 'GET_DOGS', payload: response.sort((a, b) =>  a.name.localeCompare(b.name))});
-                case 'Descendente':
-                    return dispach({type: 'GET_DOGS', payload: response.sort((a, b) =>  a.name.localeCompare(b.name)).reverse()});
-                case 'Menor Peso':
-                    return dispach({type: 'GET_DOGS', payload: response.sort((a, b) => a.weight.split('-')[0].trim() - b.weight.split('-')[0].trim())});          
-                default :
-                    return dispach({type: 'GET_DOGS', payload: response.sort((a, b) => a.weight.split('-')[0].trim() - b.weight.split('-')[0].trim()).reverse()});
-            }
-        } catch (error) {
-            alert("Error: " + error.message)
-        }
-    };
-
-  };
-
+  
   export const filtarXTemper = (temp) => {
 
     return async function(dispach){
@@ -137,3 +113,26 @@ export const orderCards = (value) => {
   export const deleteAll = () => {
     return {type: DELETE_ALL}
   }
+      // export const orderCards = (value) => {
+      //     return async function(dispach){
+      //     try {
+      //             const response = (await axios('http://localhost:3001/dogs')).data;
+      
+      //             switch(value){
+      //                 case 'Sin Orden': 
+      //                     return dispach({type: 'GET_DOGS', payload: response});
+      //                 case 'Ascendente':
+      //                     return dispach({type: 'GET_DOGS', payload: response.sort((a, b) =>  a.name.localeCompare(b.name))});
+      //                 case 'Descendente':
+      //                     return dispach({type: 'GET_DOGS', payload: response.sort((a, b) =>  a.name.localeCompare(b.name)).reverse()});
+      //                 case 'Menor Peso':
+      //                     return dispach({type: 'GET_DOGS', payload: response.sort((a, b) => a.weight.split('-')[0].trim() - b.weight.split('-')[0].trim())});          
+      //                 default :
+      //                     return dispach({type: 'GET_DOGS', payload: response.sort((a, b) => a.weight.split('-')[0].trim() - b.weight.split('-')[0].trim()).reverse()});
+      //             }
+      //         } catch (error) {
+      //             alert("Error: " + error.message)
+      //         }
+      //     };
+      
+      //   };

@@ -3,8 +3,9 @@ import { useState } from 'react';
 
 
 const SearchBar = ({onSearch}) => {
+  // estado local para manejar el valor del imput
+  const [searchName, setSearchName] = useState(""); 
 
-  const [searchName, setSearchName] = useState(""); // estado local para manejar el valor del imput
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -18,7 +19,7 @@ const SearchBar = ({onSearch}) => {
   
   return (
     <div className="navbar">
-      <h3 className='title'>Busqueda por Nombre:</h3>
+      <h3 className='title'>Por Nombre:</h3>
       <input value={searchName} className='searchInput' name='input' type='search' placeholder='Nombre de la Raza' onChange={handleChange} />
       <button className='searchButton' type='submit' onClick={() => handleClick()}>Buscar</button> 
     </div>

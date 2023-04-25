@@ -17,7 +17,7 @@
     margin-top: 10px;
 }
 .grid{
-    background: #fff;
+    background: #e9e9e9;
     height: 90vh;
     width: 90%;
     max-width: 1200px;
@@ -50,7 +50,7 @@
     justify-content: center;
     clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
     transform: translate(50%);
-    animation: show 2s forwards, move 1s 2s forwards;
+    animation: show 3s forwards, move 1s 2s forwards;
 }
 .grid_title{
     font-size: 5.5rem;
@@ -66,7 +66,6 @@
     to{
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
-    
 }
 
 @keyframes move{

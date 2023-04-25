@@ -11,7 +11,7 @@ const Nav = () => {
               <Link  className='lincks' to="/home"><h3>Home </h3></Link>
           </div>
           <div  className='titule'>
-              <Link  className='lincks' to="/dogs"><h3> Nueva Raza</h3></Link>
+              <Link  className='lincks' to="/dogs"><h3> Creación de Razas</h3></Link>
           </div>
         </div>
     </nav>

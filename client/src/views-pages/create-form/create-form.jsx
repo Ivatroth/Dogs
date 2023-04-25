@@ -2,10 +2,8 @@ import { useEffect, useState } from 'react';
 import './create-form.css';
 import { validations } from './validations';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTemperaments, postCreateDogs } from '../../redux/actions';
+import { getTemperaments, postCreateDogs, getAllDogs } from '../../redux/actions';
 import { restauraDog } from './restauraDog';
-
-
 
 
 function Form() {
@@ -42,10 +40,12 @@ function Form() {
 
 useEffect(() => {
   if(allTemperaments.length === 0) dispatch(getTemperaments());
+  dispatch(getAllDogs());
 },[dispatch])
 
 // cuando algun input cambie ejecutará esta funcion
 const handelChange = (event) => {
+  
   event.preventDefault();
   const value = event.target.value;
   const property = event.target.name;
@@ -60,10 +60,10 @@ const handelChange = (event) => {
 
 const handelSelect = (event) => {
   setInput({...input, temperament: input.temperament ? input.temperament + ", " + event.target.value : event.target.value});
-
 };
 
 const handelSubmit = () => {
+
   const repetido = allDogs.filter((dog)=> dog.name === input.name)
   console.log(repetido);
   if(repetido.length!==0) {
@@ -99,70 +99,56 @@ const handelSubmit = () => {
           <label htmlFor="">Nombre:</label>
           <input type="text" value={input.name} name= 'name' onChange={handelChange}/>
           <p>{error.name}</p>
+        </div>     
+
+        <div className='entradas'>
+            <label htmlFor="">Rango de altura:</label>
+            <span> Desde  </span>
+            <input disabled = {input.name ? false : true} id="altura_min" type="number" value={input.heightmin} name= 'heightmin' onChange={handelChange}/> <span> cm  -  </span>
+            <span> Hasta  </span>
+            <input disabled = {input.heightmin ? false : true} id="altura_max" type="number" value={input.heightmax} name= 'heightmax' onChange={handelChange}/> <span> cm</span>
+            <p>{error.heightmin}</p>
+            <p>{error.heightmax}</p>
         </div>
-        {input.name ? 
-              <div className='entradas'>
-                <label htmlFor="">Rango de altura:</label>
-                <span> Desde  </span>
-                <input id="altura_min" type="number" value={input.heightmin} name= 'heightmin' onChange={handelChange}/> <span> cm  -  </span>
-                <span> Hasta  </span>
-                
-                <input id="altura_max" type="number" value={input.heightmax} name= 'heightmax' onChange={handelChange}/> <span> cm</span>
-                <p>{error.heightmin}</p>
-                <p>{error.heightmax}</p>
-              </div>
-              : null
-        }
-        {input.heightmin && input.heightmax ? 
-                <div className='entradas'>
-                <label htmlFor="">Rango de Peso:</label>
-                <span>Desde  </span>
-                <input id="peso_min" type="number" value={input.weightmin} name= 'weightmin' onChange={handelChange}/> <span>kg  -  </span>
-                <span>Hasta  </span>
-                <input id="peso_max" type="number" value={input.weightmax} name= 'weightmax' onChange={handelChange}/> <span>kg</span>
-                <p>{error.weightmin}</p>
-                <p>{error.weightmax}</p>
-              </div>  
-              : null
-        }
-        
-        {input.weightmin && input.weightmax ? 
-          <div className='entradas'>
+
+        <div className='entradas'>
+            <label htmlFor="">Rango de Peso:</label>
+            <span>Desde  </span>
+            <input disabled = {input.heightmax ? false : true} id="peso_min" type="number" value={input.weightmin} name= 'weightmin' onChange={handelChange}/> <span>kg  -  </span>
+            <span>Hasta  </span>
+            <input disabled = {input.weightmin ? false : true} id="peso_max" type="number" value={input.weightmax} name= 'weightmax' onChange={handelChange}/> <span>kg</span>
+            <p>{error.weightmin}</p>
+            <p>{error.weightmax}</p>
+        </div>  
+    
+        <div className='entradas'>
             <label htmlFor="">Rango de esperanza de vida:</label>
             <span>Desde  </span>
-            <input id="vida_min" type="number" value={input.life_span_min} name= 'life_span_min' onChange={handelChange}/> <span>años  -  </span>
+            <input disabled = {input.weightmax ? false : true} id="vida_min" type="number" value={input.life_span_min} name= 'life_span_min' onChange={handelChange}/> <span>años  -  </span>
             <span>Hasta  </span>
-            <input id="vida_max" type="number" value={input.life_span_max} name= 'life_span_max' onChange={handelChange}/> <span>años</span>
+            <input disabled = {input.life_span_min ? false : true} id="vida_max" type="number" value={input.life_span_max} name= 'life_span_max' onChange={handelChange}/> <span>años</span>
             <p>{error.life_span_min}</p>
             <p>{error.life_span_max}</p>
-          </div>        
-          : null
-        }
-        
-        {input.life_span_min && input.life_span_max ?
-                <div className='entradas'>
-                <label htmlFor="">Carga una imagen aqui:</label>
-                <input type="url" value={input.image} name= 'image' onChange={handelChange}/>
-                <p>{error.image}</p>
-              </div>
-              : null
-        }
+        </div>        
 
-        {input.image ? 
-                <div className='entradas'>
-                <span>Temperamento:</span>
-                  <select name = "temperaments" onChange={handelSelect}> 
+        <div className='entradas'>
+            <label htmlFor="">Carga una imagen aqui:</label>
+            <input disabled = {input.life_span_max ? false : true} type="url" value={input.image} name= 'image' onChange={handelChange}/>
+            <p>{error.image}</p>
+        </div>
+
+        <div className='entradas'>
+            <span>Temperamento:</span>
+            <select disabled = {input.image ? false : true} name = "temperaments" onChange={handelSelect}> 
                     {
                       allTemperaments.map((temp) => {
                         return (<option>{temp}</option>)
                       })
                     }
-                  </select>
-                  <h4>{input.temperament}</h4>
-                  <p>{error.temperament}</p>
-              </div>
-              : null
-        }
+            </select>
+            <h4>{input.temperament}</h4>
+            <p>{error.temperament}</p>
+        </div>
 
         {input.temperament            
             ? <button type="submit">Guardar</button>

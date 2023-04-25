@@ -1,20 +1,16 @@
 import './home.css';
 import SideBar from '../../components/sidebar/SideBar';
 import Cards from '../../components/cards/Cards';
-import  {getNameDogs, filterCards, getAllDogs,getTemperaments} from '../../redux/actions'
+import  {getNameDogs, filtarXTemper, filterCards} from '../../redux/actions'
 import { useDispatch ,useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Paginado } from '../../components/paginado/paginado';
-import { Ordenar, FiltraXTemp } from './filtrarYordenar.jsx';
+import { Ordenar } from './filtrarYordenar.jsx';
 
 
-//!Componente
 function Home() {
   // la forma en que le comunico al reducer una actions es con un dispatch.
   const dispatch = useDispatch(); 
-
-  // El estado para los Dogs, cuando este cambia, es enviado a todos los componentes que estan subscriptos a el.
-  // Con el useSelector se hace la subscripcion de este componente al estado global, pero indicandole a cual subEstado, en este caso allDogs.
   let allDogs = useSelector((state) => state.allDogs);
   let allTemperaments = useSelector((state) => state.allTemperaments);
   //estados locales para manejar y mostrar los filtros
@@ -36,24 +32,13 @@ function Home() {
     setCurrentPage(numPagina)
   }
   
-  useEffect(() => {
-    dispatch(getAllDogs());
-    dispatch(getTemperaments());
+
+  const onSearch = (searchName) => {
+    dispatch(getNameDogs(searchName));
     setSearchF("Todos");
     setSearchO("Sin Orden");
     setSearchT("Todos")
     paginado(1);
-    //antes de salir del componente se debe limpiar el estado
-    // return(() => {
-    //   dispatch(deleteAll()) 
-    // })
-  }, [dispatch] )
-
-  const onSearch = (searchName) => {
-    setSearchF(searchName);
-    dispatch(getNameDogs(searchName));
-    setSearchO("Sin Orden");
-    setSearchT("Todos")
   }
 
   function handelChange(event){
@@ -61,15 +46,22 @@ function Home() {
     paginado(1);
     if(event.target.name === 'filtrar'){
       setSearchF(event.target.value);
-      //!ACA hacer otra funcion fuera y n todas mandarce los estados locales
-      //!Mejor cuando ordeno pongo los temperamentos en todos
-      //!
-      dispatch(filterCards(event.target.value));
+      setSearchO("Sin Orden");
+      setSearchT("Todos")
+      dispatch(filterCards(event.target.value))
+      //FiltrarDogs(event.target.value, searchT, searchO, dispatch, allDogs);      
     }
     else if(event.target.name === 'ordena') {
-      Ordenar(event.target.value, searchF, setSearchO, dispatch, allDogs);
-    } else {
-      FiltraXTemp(event.target.value, searchF, searchO, setSearchT, setSearchO, dispatch, allDogs)
+      setSearchO(event.target.value)
+      setSearchT("Todos")
+      Ordenar(event.target.value, allDogs);
+    } 
+    else {
+      setSearchT(event.target.value)
+      setSearchF('Todos')
+      setSearchO('Sin Orden')
+      dispatch(filtarXTemper(event.target.value));
+      //FiltraXTemp(event.target.value, searchF, searchO, dispatch, allDogs)
     }
   }
   

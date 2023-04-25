@@ -17,25 +17,25 @@ module.exports = (sequelize) => {
     image: {
       //url
         type: DataTypes.STRING,
-        allowNull: false,
+        // allowNull: false,
 
     },
     height: {
         //rango de altura --> "metric": "23 - 29"
         type: DataTypes.STRING,
-        allowNull: false,
+        // allowNull: false,
 
     },
     weight: {
         //rango peso --> "metric": "3 - 6"
         type: DataTypes.STRING,
-        allowNull: false,
-
+        // allowNull: false,
+        
     },
     life_span: {
       //rango de esperanza de vida --> "life_span": "10 - 12 years",
         type: DataTypes.STRING,
-        allowNull: false,
+        // allowNull: false,
 
     },
     created: {

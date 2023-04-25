@@ -1,12 +1,12 @@
 .nav{
-    background-image: url('./perro1.jpg');
+    background-image: url('./perro3.jpg');
     /* object-fit: cover; */
     object-position: center;
     background-position: center;
     background-repeat: no-repeat;
     background-size:cover;
     border-radius: 10px;
-    height: 200px;
+    height: 150px;
     color: #cfc5c5;
     margin-top: 10px;
 
