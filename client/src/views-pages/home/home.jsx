@@ -1,11 +1,10 @@
 import './home.css';
 import SideBar from '../../components/sidebar/SideBar';
 import Cards from '../../components/cards/Cards';
-import  {getNameDogs, filtarXTemper, filterCards} from '../../redux/actions'
+import  {getNameDogs, filtarXTemper, filterCards, orderCards} from '../../redux/actions';
 import { useDispatch ,useSelector } from 'react-redux';
 import { useState } from 'react';
 import { Paginado } from '../../components/paginado/paginado';
-import { Ordenar } from './filtrarYordenar.jsx';
 
 
 function Home() {
@@ -27,12 +26,19 @@ function Home() {
   const indexFirstDog = indexLastDog - dogsXPage;
   // array de los dog actuales en esta pagina
   const currentDogs = allDogs.slice(indexFirstDog, indexLastDog);
+  //cantidad de paginas totales
+  const [pages] = useState(Math.round(allDogs.length / dogsXPage));
   
   const paginado = (numPagina) => {
     setCurrentPage(numPagina)
   }
+  function goToNextPage() {
+    setCurrentPage(currentPage + 1);
+  }
+  function goToPreviousPage() {
+    setCurrentPage(currentPage - 1);
+  }
   
-
   const onSearch = (searchName) => {
     dispatch(getNameDogs(searchName));
     setSearchF("Todos");
@@ -41,28 +47,29 @@ function Home() {
     paginado(1);
   }
 
-  function handelChange(event){
+  const handelChange = (event) => {
     event.preventDefault();
-    paginado(1);
+    // paginado(1);
     if(event.target.name === 'filtrar'){
       setSearchF(event.target.value);
       setSearchO("Sin Orden");
-      setSearchT("Todos")
-      dispatch(filterCards(event.target.value))
-      //FiltrarDogs(event.target.value, searchT, searchO, dispatch, allDogs);      
+      setSearchT("Todos");
+      dispatch(filterCards(event.target.value));
+  
     }
-    else if(event.target.name === 'ordena') {
-      setSearchO(event.target.value)
-      setSearchT("Todos")
-      Ordenar(event.target.value, allDogs);
-    } 
-    else {
-      setSearchT(event.target.value)
-      setSearchF('Todos')
-      setSearchO('Sin Orden')
+    else if (event.target.name === 'temperaments'){
+      setSearchF('Todos');
+      setSearchT(event.target.value);
+      setSearchO('Sin Orden');
       dispatch(filtarXTemper(event.target.value));
-      //FiltraXTemp(event.target.value, searchF, searchO, dispatch, allDogs)
+
     }
+    else {
+      setSearchO(event.target.value);
+      setSearchT("Todos");
+      dispatch(orderCards(event.target.value));
+
+    } 
   }
   
   return (
@@ -71,7 +78,13 @@ function Home() {
         <Paginado allDogs={allDogs.length}
                   dogsXPage={dogsXPage}
                   paginado={paginado} />
-        <h1>{currentPage}</h1>
+        <button onClick={goToPreviousPage} className= 'prev' disabled = {currentPage === 1 ? true : false}>
+          prev
+        </button>          
+        <span>{currentPage}</span>
+        <button onClick={goToNextPage} className='next' disabled = {currentPage === pages ? true : false}>
+            next
+        </button>
       </div>
       <div className="home">
         <div className="sidebar"> 

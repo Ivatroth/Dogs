@@ -1,4 +1,5 @@
-import { GET_DOGS,DELETE, DELETE_ALL, GET_DOG_ID, GET_TEMPERAMENTS, CREATE_DOG } from "./actions";
+import { Ordenar } from "./ordenar";
+import { GET_DOGS,DELETE, DELETE_ALL, GET_DOG_ID, GET_TEMPERAMENTS, CREATE_DOG, ORDER } from "./actions";
 
 const initialState = {
     allDogs: [],
@@ -22,8 +23,8 @@ const rootReducer = (state = initialState, action) => {
           dog: action.payload,
         }
           
-      case GET_TEMPERAMENTS:
-        return{
+        case GET_TEMPERAMENTS:
+          return{
           ...state,
           allTemperaments: action.payload,
         }
@@ -32,7 +33,14 @@ const rootReducer = (state = initialState, action) => {
         return{
           ...state,
         }
-      
+
+        case  ORDER:
+            const mewAllDogs = Ordenar(action.payload, state.allDogs)
+            return {
+              ...state,
+              allDogs: mewAllDogs,
+            }
+        
       case DELETE:
         return{
           ...state,
@@ -60,12 +68,6 @@ const rootReducer = (state = initialState, action) => {
         //     allDogs: action.payload,
         //   }
         // case FILTER:
-      //     return {
-      //       ...state,
-      //       allDogs: action.payload,
-      //     }
-
-      // case  ORDER:
       //     return {
       //       ...state,
       //       allDogs: action.payload,

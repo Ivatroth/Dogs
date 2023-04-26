@@ -10,7 +10,7 @@ const findAllDogs = async () => {
   // busco de la API
   const dogsAllApi = (await axios.get(`${URL_BASE}?key=${API_KEY}`)).data;
 
-  if(!dogsAllApi) throw new Error("Huvo un problema con la Api, no me mando los datos")
+  if(!dogsAllApi) throw new Error("Hubo un problema con la Api, no me mando los datos")
 
   // busco de a DB e incluyo los temperamentos
   let PerrosDB = await Dog.findAll({

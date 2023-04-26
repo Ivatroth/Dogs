@@ -1,4 +1,4 @@
-.paginacion ul li a{
+/* .paginacion ul li a{
     display: block;
     padding: 7px 14px;
     color:#fff;
@@ -11,4 +11,13 @@
 .paginacion ul li a:active{
     background:#bcc4dc;
     font-weight: bold;
+} */
+
+.number{
+    width: 35px;
+    background: #978686;
+    cursor: pointer;
+}
+.number:hover{
+    background: #bcc4dc;
 }

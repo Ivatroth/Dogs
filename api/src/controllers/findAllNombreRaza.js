@@ -18,9 +18,6 @@ const findAllRazas = async (query) => {
   const dogsApi = clearInfoApi(dogsAllApi);
 
   //busco la info de la DB con el filtro 
-  //! me da error cuando no tengo nada el la DB de dogs
-  //! tengo que cargar la tabla Temperament,luego crear un Dogs y recien 
-  //! correr este modulo.
   const PerrosDB = await Dog.findAll({
       where: {
           name: {
@@ -40,10 +37,10 @@ const findAllRazas = async (query) => {
 //* debo cambiarls por un string para enviarloa al cliente
 const dogsDB = restaurarDogs(PerrosDB);
 
-  const dogs = [...dogsDB,...dogsApi];
+const dogs = [...dogsDB,...dogsApi];
 if (dogs.length === 0) throw Error("No existe raza de perros que coincida con lo buscado");
     
-  return dogs;
+return dogs;
 
 };
 

@@ -15,11 +15,10 @@ function App() {
   const dispatch = useDispatch(); 
   const {pathname} = useLocation();
 
+
   useEffect(() => {
     dispatch(getAllDogs());
     dispatch(getTemperaments());
-    // return(() => {
-    //   clearState() 
   }, [dispatch] )
 
 

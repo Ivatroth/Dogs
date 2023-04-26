@@ -9,12 +9,12 @@ const SearchBar = ({onSearch}) => {
 
   const handleChange = (event) => {
     event.preventDefault();
-    setSearchName(event.target.value)
+    setSearchName(event.target.value);
   }
   
   const handleClick = ()=>{
-    onSearch(searchName)
-    setSearchName("")
+    onSearch(searchName);
+    setSearchName("");
   }
   
   return (

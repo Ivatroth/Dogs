@@ -13,19 +13,17 @@ const findAllTemperaments = async () => {
   //obtengo un array(set para que no se repitan) de temperamentos
   let setTemp = new Set();
   
-  //let temp = [];
   infoApi.forEach(dog => {
     if(dog.temperament) {
       let tempe = dog.temperament.split(',')
       tempe.forEach((nameTem) => setTemp.add(nameTem.trim())); 
     }
   });
-
-  //recorro el array de temperamentos y llamo la funcion para cargar la DB
+  //primero hago una consulta a la tabla de Temperamentos por si ya estaba cargada.
   const temp = await Temperament.findAll();
+  //recorro el array de temperamentos y llamo la funcion para cargar la DB
   if(temp.length === 0) setTemp.forEach((te) => createTemp(te));
       
-
   // Utilice el operador de dispersión para transformar un conjunto en una matriz. --> Sacado de google 
   return [...setTemp]; 
   };

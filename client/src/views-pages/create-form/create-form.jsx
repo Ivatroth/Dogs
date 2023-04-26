@@ -40,7 +40,7 @@ function Form() {
 
 useEffect(() => {
   if(allTemperaments.length === 0) dispatch(getTemperaments());
-  dispatch(getAllDogs());
+  dispatch(getAllDogs()); // actualizo el estado global con todo para consultar si ya existe
 },[dispatch])
 
 // cuando algun input cambie ejecutará esta funcion
@@ -65,7 +65,6 @@ const handelSelect = (event) => {
 const handelSubmit = () => {
 
   const repetido = allDogs.filter((dog)=> dog.name === input.name)
-  console.log(repetido);
   if(repetido.length!==0) {
     alert("La raza ya existe en la Base de Datos");
   } else {

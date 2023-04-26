@@ -5,7 +5,7 @@ export const GET_DOGS = 'GET_DOGS';
 // export const GET_DOGS_NAME = 'GET_DOGS_NAME';
 export const GET_DOG_ID = 'GET_DOG_ID';
 export const GET_TEMPERAMENTS = 'GET_TEMPERAMENTS';
-// export const FILTER = 'FILTER';
+export const ORDER = 'ORDER';
 export const DELETE_ALL = 'DELETE_ALL';
 export const CREATE_DOG ='CREATE_DOG';
 export const DELETE = 'DELETE'
@@ -106,33 +106,34 @@ export const filterCards = (filter) => {
      
   }
 
-  export const deleteDog = () =>{
-    return {type: DELETE}
-  }
+      export const orderCards = (value) => {
+          return async function(dispach){
+          try {
+                  //const response = (await axios('http://localhost:3001/dogs')).data;
+                  dispach({type: 'ORDER', payload: value});
+                //   switch(value){
+                //       case 'Sin Orden': 
+                //           return dispach({type: 'GET_DOGS', payload: response});
+                //       case 'Ascendente':
+                //           return dispach({type: 'GET_DOGS', payload: response.sort((a, b) =>  a.name.localeCompare(b.name))});
+                //       case 'Descendente':
+                //           return dispach({type: 'GET_DOGS', payload: response.sort((a, b) =>  a.name.localeCompare(b.name)).reverse()});
+                //       case 'Menor Peso':
+                //           return dispach({type: 'GET_DOGS', payload: response.sort((a, b) => a.weight.split('-')[0].trim() - b.weight.split('-')[0].trim())});          
+                //       default :
+                //           return dispach({type: 'GET_DOGS', payload: response.sort((a, b) => a.weight.split('-')[0].trim() - b.weight.split('-')[0].trim()).reverse()});
+                //   }
+              } catch (error) {
+                  alert("Error: " + error.message)
+              }
+          };
+      
+        };
 
-  export const deleteAll = () => {
-    return {type: DELETE_ALL}
-  }
-      // export const orderCards = (value) => {
-      //     return async function(dispach){
-      //     try {
-      //             const response = (await axios('http://localhost:3001/dogs')).data;
-      
-      //             switch(value){
-      //                 case 'Sin Orden': 
-      //                     return dispach({type: 'GET_DOGS', payload: response});
-      //                 case 'Ascendente':
-      //                     return dispach({type: 'GET_DOGS', payload: response.sort((a, b) =>  a.name.localeCompare(b.name))});
-      //                 case 'Descendente':
-      //                     return dispach({type: 'GET_DOGS', payload: response.sort((a, b) =>  a.name.localeCompare(b.name)).reverse()});
-      //                 case 'Menor Peso':
-      //                     return dispach({type: 'GET_DOGS', payload: response.sort((a, b) => a.weight.split('-')[0].trim() - b.weight.split('-')[0].trim())});          
-      //                 default :
-      //                     return dispach({type: 'GET_DOGS', payload: response.sort((a, b) => a.weight.split('-')[0].trim() - b.weight.split('-')[0].trim()).reverse()});
-      //             }
-      //         } catch (error) {
-      //             alert("Error: " + error.message)
-      //         }
-      //     };
-      
-      //   };
+        export const deleteDog = () =>{
+            return {type: DELETE}
+          }
+        
+          export const deleteAll = () => {
+            return {type: DELETE_ALL}
+          }
