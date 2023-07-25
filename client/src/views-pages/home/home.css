@@ -22,14 +22,27 @@
 .sidebar{
     width: 900px;
 }
-.prev,
+.page{
+    text-align: center;
+    font-size: x-large;
+}
+
+
+
+
+
+
+
+
+
+
+/* .prev,
 .next {
   background: #d3d1d1;
   border: none;
-  /* padding: 5px; */
   color: rgb(92, 83, 50);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
   margin:10px;
   cursor: pointer;
   width: 50px;
-}
+} */

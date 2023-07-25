@@ -21,7 +21,7 @@ dogsRouter.get("/", async (req, res) => {
     }
     });
     
-    // 📍 GET | /dogs/name?="..."
+    // 📍 GET | /dogs/name?name="..."
     // Esta ruta debe obtener todas aquellas razas de perros que coinciden con el nombre recibido por query.
     // (No es necesario que sea una coincidencia exacta).
     // Debe poder buscarlo independientemente de mayúsculas o minúsculas.
@@ -31,7 +31,6 @@ dogsRouter.get("/", async (req, res) => {
     dogsRouter.get("/name", async (req, res) => {
       try {
         const { name } = req.query;
-        //console.log(req.query);
         const raza = name ? await findAllNombreRaza(name)
                           : await findAllDogs();
 
@@ -51,7 +50,6 @@ dogsRouter.get("/:idRaza", async (req, res) => {
     try {
       const { idRaza } = req.params;
       const raza = await findDogById(idRaza);
-      console.log(raza);
       res.status(200).json(raza);
     } catch (error) {
       res.status(400).json({ error: error.message });

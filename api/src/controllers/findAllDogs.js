@@ -31,7 +31,7 @@ const findAllDogs = async () => {
   const dogsApi = clearInfoApi(dogsAllApi);
     
   // retorno ambos
-  //console.log("TODOS"+[...dogsDB,...dogsApi]);
+
   return [...dogsDB,...dogsApi];
 }
 
